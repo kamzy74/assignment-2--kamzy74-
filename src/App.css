@@ -3,10 +3,19 @@ body {
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 14px;
     color: #000000;
+    background-color: #ffffff;
     line-height: 1.5;
     display: flex;
     min-height: 100vh;
     padding-top: 42px;
+}
+
+/* React renders everything inside <div id="root">, so it takes over
+   body's A1 job of laying out the sidebar and main content side by side. */
+#root {
+    display: flex;
+    width: 100%;
+    min-height: calc(100vh - 42px);
 }
 
 *{
@@ -140,10 +149,191 @@ ul {
     border-bottom: 1px solid #e5e5e5;
 }
 
+/* Checkbox drawn as the round circle from the mockup */
 .task-radio {
+    appearance: none;
+    flex-shrink: 0;
     width: 18px;
     height: 18px;
+    border: 1px solid #808080;
+    border-radius: 50%;
     cursor: pointer;
+    transition: background-color 0.15s, border-color 0.15s;
+}
+
+.task-radio:hover {
+    border-color: #dc4c3e;
+    background-color: #fbe9e7;
+}
+
+.task-radio:checked {
+    background-color: #dc4c3e;
+    border-color: #dc4c3e;
+    box-shadow: inset 0 0 0 3px #ffffff;
+}
+
+.task-radio:focus-visible {
+    outline: 2px solid #dc4c3e;
+    outline-offset: 2px;
+}
+
+/* ---------- Assignment 2 additions ---------- */
+
+/* Header title and counter stay on one line */
+.main-header h1 {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.task-counter {
+    white-space: nowrap;
+}
+
+/* Interactive feedback */
+.nav-link:hover {
+    background-color: #f3efe3;
+}
+
+.nav-link.active:hover {
+    background-color: #ffffff;
+}
+
+.menu-btn:hover {
+    opacity: 0.8;
+}
+
+.task-item {
+    border-radius: 4px;
+    transition: background-color 0.15s;
+}
+
+.task-item:hover {
+    background-color: #fafafa;
+}
+
+.task-text {
+    flex: 1;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+
+/* Completed tasks */
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #7e7d79;
+}
+
+/* Delete button */
+.delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    color: #b0b0b0;
+    padding: 2px 8px;
+    border-radius: 4px;
+    opacity: 0.6;
+    transition: opacity 0.15s, color 0.15s, background-color 0.15s;
+}
+
+.task-item:hover .delete-btn,
+.delete-btn:focus-visible {
+    opacity: 1;
+}
+
+.delete-btn:hover {
+    color: #dc4c3e;
+    background-color: #fbe9e7;
+}
+
+.delete-btn:active {
+    transform: scale(0.92);
+}
+
+/* Filter buttons: All | Active | Completed */
+.filters {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+}
+
+.separator {
+    color: #c8c8c8;
+    margin: 0 4px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    color: #7e7d79;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.filter-btn:hover {
+    color: #000000;
+    background-color: #f3f3f3;
+}
+
+.filter-btn.active {
+    color: #dc4c3e;
+    font-weight: 700;
+}
+
+/* Add-task form */
+.task-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.task-input {
+    flex: 1;
+    min-width: 0;
+    padding: 8px 10px;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+    font: inherit;
+}
+
+.task-input:focus {
+    outline: none;
+    border-color: #dc4c3e;
+}
+
+.add-btn {
+    background-color: #dc4c3e;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 14px;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.add-btn:hover {
+    background-color: #c53727;
+}
+
+.add-btn:active {
+    transform: scale(0.97);
+}
+
+/* Empty state */
+.empty-state {
+    color: #7e7d79;
+    padding: 24px 0;
 }
 
 @media (max-width: 480px) {
@@ -161,5 +351,9 @@ ul {
 
     .search-box {
         width: 160px;
+    }
+
+    .main-header h1 {
+        display: none;
     }
 }
