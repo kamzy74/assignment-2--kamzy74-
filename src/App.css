@@ -1,1 +1,165 @@
-/* Paste your Assignment 1 styles.css here. Keep the icons in src/assets/ so url(assets/...) paths keep working. */
+/* This is your CSS files */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 14px;
+    color: #000000;
+    line-height: 1.5;
+    display: flex;
+    min-height: 100vh;
+    padding-top: 42px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 42px;
+    background-color: #dc4c3e;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px 0 44px;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+}
+
+.menu-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: 4px 8px;
+    width: 228px;
+    height: 28px;
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.search-input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    width: 100%;
+}
+
+.task-counter {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+}
+
+.check-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    /* never squeeze below 300px */
+    background-color: #fefbf2;
+    padding: 30px 6px 0 36px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 4px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.nav-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.nav-count {
+    font-size: 12px;
+    color: #7e7d79;
+}
+
+.nav-link.active {
+    background-color: #ffffff;
+    font-weight: 700;
+}
+
+.nav-link.active .nav-count {
+    font-weight: 400;
+}
+
+.main-content {
+    flex: 1;
+    padding: 36px 54px;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.task-radio {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        display: none;
+    }
+
+    .main-header {
+        padding: 0 16px;
+    }
+
+    .main-content {
+        padding: 24px 16px;
+    }
+
+    .search-box {
+        width: 160px;
+    }
+}
